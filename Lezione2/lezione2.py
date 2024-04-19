@@ -164,6 +164,130 @@ print (f"{MEssage}{eighth_invite} i also want to worn you that {third_invite} wi
 #• Use del to remove the last two names from your list, so you have an 
 #empty list. Print your list to make sure you actually have an empty list at the end of your program.
 
+Message3: str = f"i have to inform you that i can invite only two people for dinner."
+
+print (Invited_person)
+
+print (f"Hello {Invited_person.pop(0)} we have to pospone the dinner for some problem.")
+print (f"Hello {Invited_person.pop(0)} we have to pospone the dinner for some problem.")
+print (f"Hello {Invited_person.pop(0)} we have to pospone the dinner for some problem.")
+print (f"Hello {Invited_person.pop(0)} we have to pospone the dinner for some problem.")
+print (f"Hello {Invited_person.pop(0)} we have to pospone the dinner for some problem.")
+
+print (Invited_person)
+
+print (f"Hi,{seventh_invite} for some problem {Message3} I choose you.")
+print (f"Hi,{eighth_invite} for some problem {Message3} I choose you.")
+
+del Invited_person [0]
+del Invited_person [0]
+print (Invited_person)
+
+#Think of at least five places in the world you’d like to visit.
+#• Store the locations in a list. Make sure the list is not in alphabetical order.
+#• Print your list in its original order. Don’t worry about printing the list neatly; just print it as a raw Python list.
+#• Use sorted() to print your list in alphabetical order without modifying the actual list.
+#• Show that your list is still in its original order by printing it.
+#• Use sorted() to print your list in reverse-alphabetical order without changing the order of the original list.
+#• Show that your list is still in its original order by printing it again.
+#• Use reverse()  to change the order of your list. Print the list to show that its order has changed.
+#• Use reverse() to change the order of your list again. Print the list to show it’s back to its original order.
+#• Use sort() to change your list so it’s stored in alphabetical order. Print the list to show that its order has been changed.
+#• Use sort() to change your list so it’s stored in reverse-alphabetical order.
+#Print the list to show that its order has changed.
+
+Places: str = ["Home", "Haven", "Hell", "Canada", "Otario"]
+
+print (Places)
+Places.sort ()
+print (Places)
+Places.sort (reverse = True)
+print (Places)
+Places.reverse ()
+print (Places)
+Places.reverse ()
+print (Places)
+Places.sort ()
+print (Places)
+Places.sort (reverse = True)
+print (Places)
+
+#Working with one of the programs from Exercises 3,
+# use len() to print a message indicating the number 
+#of people you’re inviting to dinner.
+
+print (Names)
+
+print (f"The list {Names} is long {len(Names)}")
+
+#Think of things you could store in a list. For example, you could make
+#a list of mountains, rivers, countries, cities, languages, or anything 
+#else you’d like. Write a program that creates a list containing these 
+#items and then uses each function introduced in this chapter at least once.
+
+List1: str = ["Hero", "Legend", "Weapon", "Story", "Adventure"]
+last_message: str ="\" This list is what i serch in a D&D adventure:\""
+
+print (f"{last_message} {List1}")
+
+First_List = List1 [0]
+Last_List = List1 [4]
+print (First_List)
+print (Last_List)
+
+print (First_List.upper())
+print (First_List.lower())
+print (First_List.title())
+
+List1.append ("Luck")
+print (List1)
+
+print (List1)
+List1.sort ()
+print (List1)
+List1.reverse ()
+print (List1)
+
+List1.remove ("Legend")
+List1.pop (0)
+del List1 [2]
+print (List1)
+
+#Use a dictionary to store information about a person you know. 
+#Store their first name, last name, age, and the city in which they live. 
+#You should have keys such as first_name, last_name, age, and city. 
+#Print each piece of information stored in your dictionary.
+
+First_Name = {"Percy": "Percy"}
+Last_Name = {"Percy": "Minter"}
+Age1 = {"Percy": "22"}
+City = {"Percy": "Brabber"}
+
+Percy = First_Name ["Percy"], Last_Name ["Percy"], Age1 ["Percy"], City ["Percy"]
+print (Percy)
+
+#Use a dictionary to store people’s favorite numbers. Think of five names, and use them as keys in your dictionary.
+#Think of a favorite number for each person, and store each as a value in your dictionary. 
+#Print each person’s name and their favorite number. For even more fun, poll a few friends
+#and get some actual data for your program.
+
+Numbers_p = {"Riccardo": "11", "Edwin": "17", "Federico": "5", "Mikolaj": "4", "Edoardo": "7"}
+numbers = Numbers_p ["Riccardo"], Numbers_p ["Edwin"], Numbers_p ["Federico"], Numbers_p ["Mikolaj"], Numbers_p ["Edoardo"]
+print (numbers)
+
+#A Python dictionary can be used to model an actual dictionary. However, to avoid confusion, let’s call it a glossary.
+#• Think of five programming words you’ve learned about in the previous chapters. Use these words as the keys in your
+# glossary, and store their meanings as values.
+#• Print each word and its meaning as neatly formatted output. You might print the word followed by a colon and then 
+#its meaning, or print the word on one line and then print its meaning indented on a second line. Use the newline 
+#character (\n) to insert a blank line between each word-meaning pair in your output.
+
+
+
+
+
+
+
 
 
 
