@@ -282,16 +282,21 @@ print (numbers)
 #its meaning, or print the word on one line and then print its meaning indented on a second line. Use the newline 
 #character (\n) to insert a blank line between each word-meaning pair in your output.
 
+word_one = {"Class": "statement, which executes a block of code and attaches its local namespace to a class, for use in object-oriented programming"}
+word_two = {"while": "statement, which executes a block of code as long as its condition is true"}
+word_three = {"For": "statement, which iterates over an iterable object, capturing each element to a local variable for use by the attached block"}
+word_four = {"If": "statement, which conditionally executes a block of code, along with else and elif (a contraction of else-if)"}
+word_five = {"Del": "statement, which removes a variable—deleting the reference from the name to the value, and producing an error if the variable is referred to before it is redefined"}
 
+lista_dizionari: list =  [word_one, word_two, word_three, word_four, word_five]
 
+for dizionario in lista_dizionari:
+    for k, v in dizionario.items():
+        print(f"{k}\n{v}")
 
-
-
-
-
-
-
-
+#Start with the program you wrote for Exercise 6-1. Make two new dictionaries representing different people,
+#and store all three dictionaries in a list called people. Loop through your list of people.
+#As you loop through the list, print everything you know about each person.
 
 
 
