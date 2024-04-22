@@ -263,7 +263,7 @@ Last_Name = {"Percy": "Minter"}
 Age1 = {"Percy": "22"}
 City = {"Percy": "Brabber"}
 
-Percy = First_Name ["Percy"], Last_Name ["Percy"], Age1 ["Percy"], City ["Percy"]
+Percy = {"First_Name": First_Name["Percy"], "Last_Name": Last_Name["Percy"], "Age1": Age1["Percy"], "City": City["Percy"]}
 print (Percy)
 
 #Use a dictionary to store people’s favorite numbers. Think of five names, and use them as keys in your dictionary.
@@ -271,9 +271,20 @@ print (Percy)
 #Print each person’s name and their favorite number. For even more fun, poll a few friends
 #and get some actual data for your program.
 
-Numbers_p = {"Riccardo": "11", "Edwin": "17", "Federico": "5", "Mikolaj": "4", "Edoardo": "7"}
-numbers = Numbers_p ["Riccardo"], Numbers_p ["Edwin"], Numbers_p ["Federico"], Numbers_p ["Mikolaj"], Numbers_p ["Edoardo"]
-print (numbers)
+Name_1 = {"Riccardo": "Riccardo", "Edwin": "Edwin", "Federico": "Federico", "Mikolaj": "Micolaj", "Edoardo": "Edoardo"}
+numbers1_1 = {"11": "11", "17": "17", "5": "5", "4": "4", "7": "7"} 
+
+Numbers_1 = {"Name_1": Name_1["Riccardo"], "numbers1_1": numbers1_1["11"]}
+Numbers_2 = {"Name_1": Name_1["Edwin"], "numbers1_1": numbers1_1["17"]}
+Numbers_3 = {"Name_1": Name_1["Federico"], "numbers1_1": numbers1_1["5"]}
+Numbers_4 = {"Name_1": Name_1["Mikolaj"], "numbers1_1": numbers1_1["4"]}
+Numbers_5 = {"Name_1": Name_1["Edoardo"], "numbers1_1": numbers1_1["7"]}
+
+Numbers: list = [Numbers_1, Numbers_2, Numbers_3, Numbers_4, Numbers_5]
+for dizionario in Numbers:
+    for k, v in dizionario.items():
+        print(f"{k}\n{v}")
+print (Numbers)
 
 #A Python dictionary can be used to model an actual dictionary. However, to avoid confusion, let’s call it a glossary.
 #• Think of five programming words you’ve learned about in the previous chapters. Use these words as the keys in your
@@ -289,7 +300,6 @@ word_four = {"If": "statement, which conditionally executes a block of code, alo
 word_five = {"Del": "statement, which removes a variable—deleting the reference from the name to the value, and producing an error if the variable is referred to before it is redefined"}
 
 lista_dizionari: list =  [word_one, word_two, word_three, word_four, word_five]
-
 for dizionario in lista_dizionari:
     for k, v in dizionario.items():
         print(f"{k}\n{v}")
@@ -297,6 +307,106 @@ for dizionario in lista_dizionari:
 #Start with the program you wrote for Exercise 6-1. Make two new dictionaries representing different people,
 #and store all three dictionaries in a list called people. Loop through your list of people.
 #As you loop through the list, print everything you know about each person.
+
+First_Name = {"Anita": "Anita"}
+Last_Name = {"Anita": "Minter"}
+Age1 = {"Anita": "23"}
+City = {"Anita": "Brabber"}
+
+Anita = {"Fist_Name": First_Name["Anita"], "Last_Name": Last_Name["Anita"], "Age1": Age1["Anita"], "City": City["Anita"]}
+print (Anita)
+
+First_Name = {"Konan": "Konan"}
+Last_Name = {"Konan": "Boh"}
+Age1 = {"Konan": "45"}
+City = {"Konan": "Anoduria"}
+Konan = {"First_Name": First_Name["Konan"], "Laste_Name": Last_Name["Konan"], "Age1": Age1["Konan"], "City": City["Konan"]}
+print (Konan)
+
+people_sus: list = [Percy, Anita, Konan]
+for dizionario in people_sus:
+    for k, v in dizionario.items():
+        print(f"{k}\n{v}")
+        print("")
+
+#Make several dictionaries, where each dictionary represents a different pet. In each dictionary, include the kind of animal
+#and the owner’s name. Store these dictionaries in a list called pets. Next, loop through your list and as you do, print 
+#everything you know about each pet. 
+
+
+Pet = {"Dog": "Dog", "Cat": "Cat", "Dragon": "Dragon"}
+Person = {"Riccardo": "Riccardo", "Simone": "Simone", "Emanuele": "Emanuele"}
+
+
+First_Person = {"Person": Person["Riccardo"], "Pet": Pet["Dragon"]}
+Second_Person = {"Person": Person["Emanuele"], "Pet": Pet["Cat"]}
+Third_Person = {"Person": Person["Simone"], "Pet": Pet["Dog"]}
+
+Pets: list = (First_Person, Second_Person, Third_Person)
+for dizionario in Pets:
+    for k, v in dizionario.items():
+        print(f"{k}\n{v}")
+
+#Make a dictionary called favorite_places. Think of three names to use as keys in the dictionary, and store one to three
+#favorite places for each person. To make this exercise a bit more interesting, ask some friends to name a few of their 
+#favorite places. Loop through the dictionary, and print each person’s name and their favorite places.
+
+
+Places1 = {"Monte Carlo": "Monte Carlo", "Vigata": "Vigata", "Canada": "Canada"}
+Person1 = {"Riccardo": "Riccardo", "Simone": "Simone", "Emanuele": "Emanuele"}
+
+Frist_places = {"Person1": Person1["Riccardo"], "Places1": Places1["Monte Carlo"]}
+Second_places = {"Person1": Person1["Emanuele"], "Places1": Places1["Canada"]}
+Third_places = {"Person1": Person1["Simone"], "Places1": Places1["Vigata"]}
+
+Favorite_Places: list = [Frist_places, Second_places, Third_places]
+for dizionario in Favorite_Places:
+    for k, v in dizionario.items():
+        print(f"{k}\n{v}")
+
+#Modify your program from Exercise 6-2 so each person can have more than one favorite number.
+#Then print each person’s name along with their favorite numbers.
+
+Name_1 = {"Riccardo": "Riccardo", "Edwin": "Edwin", "Federico": "Federico", "Mikolaj": "Micolaj", "Edoardo": "Edoardo"}
+numbers1_1 = {"11": "11", "6": "6", "17": "17", "36": "36", "5": "5", "15": "15", "4": "4", "13": "13", "7": "7", "12": "12"} 
+
+Numbers_1 = {"Name_1": Name_1["Riccardo"], "numbers1_1": numbers1_1["11"], "numbers1_2": numbers1_1["6"]}
+Numbers_2 = {"Name_1": Name_1["Edwin"], "numbers1_1": numbers1_1["17"], "numbers1_2": numbers1_1["36"]}
+Numbers_3 = {"Name_1": Name_1["Federico"], "numbers1_1": numbers1_1["5"], "numbers1_2": numbers1_1["15"]}
+Numbers_4 = {"Name_1": Name_1["Mikolaj"], "numbers1_1": numbers1_1["4"], "numbers1_2": numbers1_1["13"]}
+Numbers_5 = {"Name_1": Name_1["Edoardo"], "numbers1_1": numbers1_1["7"], "numbers1_2": numbers1_1["12"]}
+
+Numbers: list = [Numbers_1, Numbers_2, Numbers_3, Numbers_4, Numbers_5]
+for dizionario in Numbers:
+    for k, v in dizionario.items():
+        print(f"{k}\n{v}")
+print ("")
+
+#Make a dictionary called cities. Use the names of three cities as keys in your dictionary. Create a dictionary of information 
+#about each city and include the country that the city is in, its approximate population, and one fact about that city. 
+#The keys for each city’s dictionary should be something like country, population, and fact. Print the name of each city and 
+#all of the information you have stored about it.
+
+Cities = {"Las Vegas": "Las Vegas", "Los Angeles": "Los Angeles", "Rome": "Rome"}
+Information ={"Las Vegas": "often known simply as Vegas, is the most populous city in the U.S. state of Nevada and the county seat of Clark County. The Las Vegas Valley metropolitan area is the largest within the greater Mojave Desert, and second-largest in the Southwestern United States.", "Los Angeles": "often referred to by its initials L.A., is the most populous city in the U.S. state of California.","Rome": "s the capital city of Italy. It is also the capital of the Lazio region, the centre of the Metropolitan City of Rome Capital, and a special comune (municipality) named Comune di Roma Capitale."}
+Country = {"Las Vegas": "Nevada", "Los Angeles": "California", "Rome": "Lazio"}
+Population ={"Las Vegas": "2.3 million people", "Los Angeles": "13.2 million people", "Rome": "4.4 million people"}
+Fact = {"Las Vegas": "Gumbling", "Los Angeles": "Stars", "Rome": "Turism"}
+
+Las_Vegas = {"Cities": Cities["Las Vegas"], "Information": Information["Las Vegas"], "Country": Country["Las Vegas"], "Population": Population["Las Vegas"], "Fact": Fact["Las Vegas"]}
+Los_Angeles = {"Cities": Cities["Los Angeles"], "Information": Information["Los Angeles"], "Country": Country["Los Angeles"], "Population": Population["Los Angeles"], "Fact": Fact["Los Angeles"]}
+Rome_1 = {"Cities": Cities["Rome"], "Information": Information["Rome"], "Country": Country["Rome"], "Population": Population["Rome"], "Fact": Fact["Rome"]}
+
+City_Dictionary: list = [Las_Vegas, Los_Angeles, Rome_1]
+for dizionario in City_Dictionary:
+    for k, v in dizionario.items():
+        print(f"{k}\n{v}")
+    print ("")
+        
+
+
+
+
 
 
 
