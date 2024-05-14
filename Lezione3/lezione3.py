@@ -148,17 +148,10 @@ print ("\n my friend favorite foods are:")
 for Cibo in Altri_Cibo:
     print (Cibo)
 
-#4.14
-#Look through the original PEP 8 style guide
-#at https://peps.python.org/pep-0008/ You won’t use much of it now, but it might be interesting to skim through it.
-
-#4.15
-#Choose three of the programs you’ve written in this chapter and modify each one to comply with PEP 8.
 
 #5.1
-#Write a series of conditional tests. Print a statement
-# describing each test and your prediction for the results of each test. Your code
-# should look something like this:
+#Write a series of conditional tests. Print a statement describing each test and your prediction for the results of each test.
+# Your code should look something like this:
 # car = 'subaru'
 # print("Is car == 'subaru'? I predict True.")
 # print(car == 'subaru')
@@ -168,5 +161,23 @@ for Cibo in Altri_Cibo:
 # evaluates to True or False.
 # • Create at least 10 tests. Have at least 5 tests evaluate to True and another
 # 5 tests evaluate to False.
+
+
+
+def buddle_sort(A : list)-> list:
+    for i in range(len(A)):
+        for j in range(len(A)-1):
+            if A[j] > A[j+1]:
+                temp: int = A[j]
+                A[j]= A[j+1]
+                A[j+1] = temp
+    return A
+
+
+
+
+
+
+            
 
 
