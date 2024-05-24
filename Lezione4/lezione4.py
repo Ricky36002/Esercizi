@@ -216,9 +216,4 @@ print(f"{make_car('subaru','outback',color='blue',tow_package=True)}\n")
 # from module_name import function_name as fn
 # import module_name as mn
 # from module_name import *
-print("# Exercise 8-16:\n")
 
-import modulo_8_16
-from modulo_8_16 import summation
-
-print(summation(3.7,14),end="\n\n")

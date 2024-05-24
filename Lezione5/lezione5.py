@@ -13,7 +13,7 @@ class Person:
         return self._ssn
     
     def set_name(self, name: str):
-        #self.name = name
+        self.name = name
         raise Exception("You cannot modify the name!")
     
     def __str__(self)-> str:
