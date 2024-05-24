@@ -103,4 +103,131 @@ def race():
         positions = {'tortoise': tortoise_position, 'hare': hare_position}
         display_race(positions)
 
-race()
+################
+
+import random
+
+def display_positions(turtle_pos, rabbit_pos):
+    
+    positions = ['-'] * 70
+    
+    positions[turtle_pos] = 'T'
+    positions[rabbit_pos] = 'H'
+    
+    if turtle_pos == rabbit_pos:
+        positions[turtle_pos] = 'OUCH!!!'
+    
+    print(''.join(positions))
+
+def turtle_move(energy, weather):
+    
+    r = random.randint(1, 10)
+    
+    
+    if r <= 2:
+        energy += 10
+        if energy > 100:
+            energy = 100
+    
+    
+    if 3 <= r <= 7:
+        move = 3
+        energy -= 5
+    elif 8 <= r <= 9:
+        move = -6
+        energy -= 10
+    else:
+        move = 1
+        energy -= 3
+    
+    
+    if weather == "rainy":
+        move -= 1
+    return move, energy
+
+def rabbit_move(energy, weather):
+    
+    r = random.randint(1, 10)
+    
+    
+    if r <= 2:
+        energy += 10
+        if energy > 100:
+            energy = 100
+    
+    
+    if r <= 2:
+        move = 0
+        energy += 10
+        if energy > 100:
+            energy = 100
+    elif 3 <= r <= 5:
+        move = 9
+    elif r == 6:
+        move = -12
+    elif 7 <= r <= 8:
+        move = 1
+    else:
+        move = -2
+    
+    
+    if weather == "rainy":
+        move -= 2
+    return move, energy
+
+def change_weather(tick):
+    
+    if tick % 10 == 0:
+        return random.choice(["sunny", "rainy"])
+    else:
+        return "unchanged"
+
+def main():
+    
+    turtle_pos = 1
+    rabbit_pos = 1
+    
+    weather = "sunny"
+    
+    turtle_energy = 100
+    rabbit_energy = 100
+    
+    tick = 1
+    
+    print("BANG !!!!! AND THEY'RE OFF !!!!!")
+    while True:
+        
+        turtle_move_result, turtle_energy = turtle_move(turtle_energy, weather)
+        rabbit_move_result, rabbit_energy = rabbit_move(rabbit_energy, weather)
+        turtle_pos += turtle_move_result
+        rabbit_pos += rabbit_move_result
+        
+        
+        if turtle_pos >= 70 or rabbit_pos >= 70:
+            if turtle_pos > rabbit_pos:
+                print('TORTOISE WINS! || VAY!!!')
+            elif rabbit_pos > turtle_pos:
+                print('HARE WINS || YUCH!!!')
+            else:
+                print('IT\'S A TIE.')
+            break
+        
+        
+        if turtle_pos < 1:
+            turtle_pos = 1
+        if rabbit_pos < 1:
+            rabbit_pos = 1
+        
+        
+        display_positions(turtle_pos, rabbit_pos)
+        
+        
+        weather = change_weather(tick)
+        if weather != "unchanged":
+            print(f"The weather changed to: {weather.upper()}")
+        
+        
+        tick += 1
+
+if __name__ == '__main__':
+    main()
