@@ -42,16 +42,16 @@
 
 import random
 
-def print_race(positions):
+def print_race(positions, hare_pos, tortoise_pos):
     for i in range(1, 71):
-        if positions['tortoise'] == i and positions['hare'] == i:
-            print('OUCH!!!', end='')
-        elif positions['tortoise'] == i:
-            print('T', end='')
-        elif positions['hare'] == i:
-            print('H', end='')
+        if i == hare_pos and i == tortoise_pos:
+            print("OUCH!!!", end=" ")
+        elif i == hare_pos:
+            print("H", end=" ")
+        elif i == tortoise_pos:
+            print("T", end=" ")
         else:
-            print('-', end='')
+            print(i, end=" ")
     print()
 
 def tortoise_move():
@@ -101,7 +101,7 @@ def race():
             hare_position = 1
 
         positions = {'tortoise': tortoise_position, 'hare': hare_position}
-        display_race(positions)
+        print_race(positions)
 
 ################
 
