@@ -9,3 +9,4 @@
 #- aggiungi_prodotto(prodotto: Prodotto): aggiunge un prodotto al magazzino.
 #- cerca_prodotto(nome: str) -> Prodotto: cerca un prodotto per nome e lo ritorna se esiste.
 #- verifica_disponibilità(nome: str) -> str: verifica se un prodotto è disponibile in magazzino.
+...
