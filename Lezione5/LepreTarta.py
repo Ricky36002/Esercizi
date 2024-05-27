@@ -42,7 +42,7 @@
 
 import random
 
-def display_race(positions):
+def print_race(positions):
     for i in range(1, 71):
         if positions['tortoise'] == i and positions['hare'] == i:
             print('OUCH!!!', end='')
@@ -107,73 +107,79 @@ def race():
 
 import random
 
-def display_positions(turtle_pos, rabbit_pos):
+def display_positions(tortoise_position, hare_position):
     
     positions = ['-'] * 70
     
-    positions[turtle_pos] = 'T'
-    positions[rabbit_pos] = 'H'
+    positions[tortoise_position] = 'T'
+    positions[hare_position] = 'H'
     
-    if turtle_pos == rabbit_pos:
-        positions[turtle_pos] = 'OUCH!!!'
+    if tortoise_position == hare_position:
+        positions[tortoise_position] = 'OUCH!!!'
     
     print(''.join(positions))
 
-def turtle_move(energy, weather):
-    
-    r = random.randint(1, 10)
-    
-    
-    if r <= 2:
-        energy += 10
-        if energy > 100:
-            energy = 100
-    
-    
-    if 3 <= r <= 7:
-        move = 3
-        energy -= 5
-    elif 8 <= r <= 9:
-        move = -6
-        energy -= 10
-    else:
-        move = 1
-        energy -= 3
-    
-    
-    if weather == "rainy":
+def tortoise_move(weather, energy):
+    move = random.randint(1, 10)
+    if weather == "pioggia":
         move -= 1
-    return move, energy
+    if move <= 5:  
+        if energy >= 5:
+            energy -= 5
+            return 3, energy
+        else:
+            energy += 10
+            return 0, energy
+    elif move <= 7:  
+        if energy >= 10:
+            energy -= 10
+            return -6, energy
+        else:
+            energy += 10
+            return 0, energy
+    else:  
+        if energy >= 3:
+            energy -= 3
+            return 1, energy
+        else:
+            energy += 10
+            return 0, energy
 
-def rabbit_move(energy, weather):
-    
-    r = random.randint(1, 10)
-    
-    
-    if r <= 2:
-        energy += 10
-        if energy > 100:
-            energy = 100
-    
-    
-    if r <= 2:
-        move = 0
-        energy += 10
-        if energy > 100:
-            energy = 100
-    elif 3 <= r <= 5:
-        move = 9
-    elif r == 6:
-        move = -12
-    elif 7 <= r <= 8:
-        move = 1
-    else:
-        move = -2
-    
-    
-    if weather == "rainy":
+def hare_move(weather, energy):
+    move = random.randint(1, 10)
+    if weather == "pioggia":
         move -= 2
-    return move, energy
+    if move <= 2:  
+        energy = min(100, energy + 10)
+        return 0, energy
+    elif move <= 4:  
+        if energy >= 15:
+            energy -= 15
+            return 9, energy
+        else:
+            energy += 10
+            return 0, energy
+    elif move == 5:  
+        if energy >= 20:
+            energy -= 20
+            return -12, energy
+        else:
+            energy += 10
+            return 0, energy
+    elif move <= 8:  
+        if energy >= 5:
+            energy -= 5
+            return 1, energy
+        else:
+            energy += 10
+            return 0, energy
+    else:  
+        if energy >= 8:
+            energy -= 8
+            return -2, energy
+        else:
+            energy += 10
+            return 0, energy
 
 def change_weather(tick):
     
@@ -181,56 +187,52 @@ def change_weather(tick):
         return random.choice(["sunny", "rainy"])
     else:
         return "unchanged"
+def apply_obstacles(position, obstacoles):
+    if position in obstacoles:
+        return position + obstacoles[position]
+    return position
 
-def main():
-    
-    turtle_pos = 1
-    rabbit_pos = 1
-    
-    weather = "sunny"
-    
-    turtle_energy = 100
-    rabbit_energy = 100
-    
-    tick = 1
-    
-    print("BANG !!!!! AND THEY'RE OFF !!!!!")
-    while True:
-        
-        turtle_move_result, turtle_energy = turtle_move(turtle_energy, weather)
-        rabbit_move_result, rabbit_energy = rabbit_move(rabbit_energy, weather)
-        turtle_pos += turtle_move_result
-        rabbit_pos += rabbit_move_result
-        
-        
-        if turtle_pos >= 70 or rabbit_pos >= 70:
-            if turtle_pos > rabbit_pos:
-                print('TORTOISE WINS! || VAY!!!')
-            elif rabbit_pos > turtle_pos:
-                print('HARE WINS || YUCH!!!')
-            else:
-                print('IT\'S A TIE.')
-            break
-        
-        
-        if turtle_pos < 1:
-            turtle_pos = 1
-        if rabbit_pos < 1:
-            rabbit_pos = 1
-        
-        
-        display_positions(turtle_pos, rabbit_pos)
-        
-        
-        weather = change_weather(tick)
-        if weather != "unchanged":
-            print(f"The weather changed to: {weather.upper()}")
-        
-        
-        tick += 1
+print("BANG !!!!! AND THEY'RE OFF !!!!!")
 
-if __name__ == '__main__':
-    main()
+tortoise_position = 1
+hare_position = 1
+    
+weather = "sunny"
+    
+tortoise_energy = 100
+hare_energy = 100
+    
+tick = 1
+obstacoles = {15: -3, 30: -5, 45: -7}
+bounces = {10: 5, 25: 3, 50: 10}
 
-def ostacoli(self,):
-    pass
+while True:           
+    tick += 1
+    weather = change_weather(tick) or weather  
+
+    hare_move_result, hare_energy = hare_move(weather, hare_energy)
+    hare_position += hare_move_result
+    if hare_position < 0:
+        hare_position = 0
+    hare_position = apply_obstacles(hare_position, obstacoles)
+    hare_position = apply_obstacles(hare_position, bounces)
+    
+    tortoise_move_result, tortoise_energy = tortoise_move(weather, tortoise_energy)
+    tortoise_position += tortoise_move_result
+    if tortoise_position < 0:
+        tortoise_position = 0
+    tortoise_position = apply_obstacles(tortoise_position, obstacoles)
+    tortoise_position = apply_obstacles(tortoise_position, bounces)
+
+
+    print_race(70, hare_position, tortoise_position)
+
+    if hare_position >= 70 and tortoise_position >= 70:
+        print("IT'S A TIE.")
+        break
+    elif hare_position >= 70:
+        print("HARE WINS! YUCH!!!")
+        break
+    elif tortoise_position >= 70:
+        print("TORTOISE WINS! VAY!!!")
+        break 
