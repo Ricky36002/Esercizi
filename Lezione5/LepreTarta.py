@@ -51,7 +51,7 @@ def print_race(positions, hare_pos, tortoise_pos):
         elif i == tortoise_pos:
             print("T", end=" ")
         else:
-            print(i, end=" ")
+            print("-", end=" ")
     print()
 
 def tortoise_move():
