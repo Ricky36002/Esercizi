@@ -1,4 +1,4 @@
-# ### CLASSE: Persona
+'''# ### CLASSE: Persona
 
 # Creare un file chiamato "persona.py". In tale file, definire una classe chiamata Persona. Tale classe deve avere due attributi privati di tipo String, uno per il nome ed uno per il cognome, ed un attributo privato di tipo int per l'età.
 # - La classe Persona deve avere i seguenti metodi:
@@ -92,67 +92,57 @@
 # - Scrivere test per verificare:
 #   - L'inizializzazione corretta della classe Fattura.
 #   - Il calcolo corretto del salario e del numero di fatture.
-#   - L'aggiunta e la rimozione di pazienti dalla lista.
+#   - L'aggiunta e la rimozione di pazienti dalla lista.'''
 
 
-class Person:
-    def __init__(self, first_name, last_name, age):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
-        self.name = first_name + " " + last_name
-    
-    def setName(self, first_name):
-        self.first_name = first_name
-        self.name = first_name + " " + self.last_name
-    
-    def setLastName(self, last_name):
-        self.last_name = last_name
-        self.name = self.first_name + " " + last_name
-    
-    def setAge(self, age):
-        self.age = age
-                    
-class Doctor(Person):
-    def __init__(self, first_name, last_name, age, specialization, fee):
-        super().__init__(first_name, last_name, age)
-        self.specialization = specialization
-        self.fee = fee
-    
-    def isValidDoctor(self):
-        if self.age >= 25:
-            return True
+class Persona:
+    def __init__(self, first_name, last_name):
+        if isinstance(first_name, str):
+            self.__first_name = first_name
         else:
-            return False
-    
-    def setSpecialization(self, specialization):
-        self.specialization = specialization
-    
-    def setFee(self, fee):
-        self.fee = fee
-class Patient(Person):
-    
-    def __init__(self, first_name, last_name, age, id):
-        super().__init__(first_name, last_name, age)
-        self.id = id
-    
-    def isValidPatient(self):
-        if self.age >= 18:
-            return True
-        else:
-            return False
-
-class Invoice:
-    def __init__(self, doctor, patient, amount):
-        self.doctor = doctor
-        self.patient = patient
-        self.amount = amount
-        self.isPaid = False
-        self.paymentDate = None
-        self.paymentMethod = None
-        self.paymentReference = None
-        self.invoiceDate = datetime.date.today()
+            self.__first_name = None
+            print("Il nome inserito non è una stringa!")
         
+        if isinstance(last_name, str):
+            self.__last_name = last_name
+        else:
+            self.__last_name = None
+            print("Il cognome inserito non è una stringa!")
+        
+        if self.__first_name and self.__last_name:
+            self.__age = 0
+        else:
+            self.__age = None
+
+    def setName(self, first_name):
+        if isinstance(first_name, str):
+            self.__first_name = first_name
+        else:
+            print("Il nome inserito non è una stringa!")
+
+    def setLastName(self, last_name):
+        if isinstance(last_name, str):
+            self.__last_name = last_name
+        else:
+            print("Il cognome inserito non è una stringa!")
+
+    def setAge(self, age):
+        if isinstance(age, int):
+            self.__age = age
+        else:
+            print("L'età deve essere un numero intero!")
+
+    def getName(self):
+        return self.__first_name
+
+    def getLastname(self):
+        return self.__last_name
+
+    def getAge(self):
+        return self.__age
+
+    def greet(self):
+        return f"Ciao, sono {self.__first_name} {self.__last_name}! Ho {self.__age} anni!"
 
                 
                     
