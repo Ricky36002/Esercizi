@@ -45,15 +45,18 @@
 # Numero della carta: 6543210987654321
 
 class Pagamento:
-    
     def __init__(self):
         self.__importo = 0.0
-    
+
     def set_importo(self, importo):
         self.__importo = importo
-    
+
     def get_importo(self):
         return self.__importo
+
+    def dettagli_pagamento(self):
+        return f"Importo del pagamento: €{self.get_importo():.2f}"
+
 class PagamentoContanti(Pagamento):
     def __init__(self, importo, ):
         super().__init__()
@@ -62,9 +65,10 @@ class PagamentoContanti(Pagamento):
     def dettagliPagamento(self):
         print (f"Pagamento in contanti di: €{self.get_importo():.2f}")
         self.__calcola_banconote()
+    
     def __calcola_banconote(self):
-        banconote = [100, 50, 20, 10, 5,]
-        monete = [2, 1, 0.5, 0.2, 0,1]
+        banconote = [100.00, 50.00, 20.00, 10.00, 5.00,]
+        monete = [2, 1, 0.5, 0.2, 0,1, 0.05, 0.02, 0.01]
         resto = self.get_importo()
         for banconota in banconote:
             quantita = int(resto // banconota)
@@ -76,6 +80,10 @@ class PagamentoContanti(Pagamento):
             resto -= quantita * moneta
             if quantita > 0:
                 print(f"{quantita} moneta/e da {moneta} euro")
+                if resto > 0:
+                    print(f"Resto: {resto:.2f} euro")
+class PagamentoCartaCredito(Pagamento):
+                        
 
 
 
