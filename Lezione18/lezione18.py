@@ -32,10 +32,21 @@ def validate_password(password):
 
 
 
-# 3) Context Managers for File Handling: Use the with statement and context managers to open and close a file. Handle potential IOError within the with block for clean resource management.
+# 3) Context Managers for File Handling: Use the with statement and context managers to open and close a file. Handle potential 
+# IOError within the with block for clean resource management.
 
+def read_file(filename):
+    try:
+        with open(filename, 'r') as file:
+            content = file.read()
+        return content
+        
 # 4) Database of dates:  Write a class that manages a database of dates with the format gg.mm.aaaa implementing methods to add a new date, delete a given date, modify a date, and perform a query on a given date is required.  A query on a given date allows for retrieving a given new date. Note that a date is an object for your database; it must be instantiated from a string.
 
+class Date:
+    def __init__(self, date_str):
+        self.day, self.month, self.year = map(int, date_str.split('.'))
+        
 # 5) An interactive calculator: It is required to develop an interactive calculator with at least 10 test cases using UnitTest
 # trying to (possibly) cover all execution paths! User input is assumed to be a formula that consists of a number, an operator
 # (at least + and -), and another number, separated by white space (e.g. 1 + 1). Split user input using str.split(), and check
